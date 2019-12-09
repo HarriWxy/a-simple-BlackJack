@@ -1,19 +1,25 @@
 package src;
 
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
-import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
 @SuppressWarnings("serial")
 public class MainFrame extends BasicFrame {
 	boolean flag=false;
 	Play_with_gui game;
+	ArrayList<Image> images=new ArrayList<Image>();
+	ImageIcon img_temp;
 	public MainFrame() {
 		// TODO Auto-generated constructor stub
 		super();
 		game=new Play_with_gui();
+		img_temp=new ImageIcon("image/back.gif");
+		images.add(img_temp.getImage());
 	}
 	@Override
 	public void paint(Graphics g) {
@@ -21,6 +27,7 @@ public class MainFrame extends BasicFrame {
 		super.paint(g);
 		if (!flag) {
 			g.drawString("Robot's cards: * pts", 10, 45);
+			g.drawImage(img_temp.getImage(), 10, 55, this);
 			
 		}
 		
@@ -63,6 +70,15 @@ public class MainFrame extends BasicFrame {
 			}
 		});
 	}
+//	public void fileopen() {
+//		File temp=new File("image/back.gif");
+//		try {
+//			Desktop.getDesktop().open(temp);
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	}
 	public static void main(String[] args) {
 		new MainFrame();
 	}
