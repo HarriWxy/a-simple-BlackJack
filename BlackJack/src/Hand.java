@@ -15,6 +15,9 @@ public class Hand {
 			}
 		}
 	}
+	public ArrayList<Card> getCarray() {
+		return carray;
+	}
 	public int count() {
 		if (carray.size()==2) {
 			if (((carray.get(0).k%4==10)&(carray.get(1).k)%4==0)|((carray.get(1).k%4==10)&(carray.get(0).k)%4==0)) {

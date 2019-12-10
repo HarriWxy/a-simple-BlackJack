@@ -12,14 +12,19 @@ import javax.swing.ImageIcon;
 public class MainFrame extends BasicFrame {
 	boolean flag=false;
 	Play_with_gui game;
-	ArrayList<Image> images=new ArrayList<Image>();
+	ImageIcon img_back=new ImageIcon("image/back.gif");
 	ImageIcon img_temp;
+	ArrayList<Card> player_cards;
+	ArrayList<Card> deaker_cards;
 	public MainFrame() {
 		// TODO Auto-generated constructor stub
 		super();
 		game=new Play_with_gui();
-		img_temp=new ImageIcon("image/back.gif");
-		images.add(img_temp.getImage());
+		getcards();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+	}
+	public void getcards() {
+		player_cards=game.getPlayer();
+		deaker_cards=game.getDeaker();
 	}
 	@Override
 	public void paint(Graphics g) {
@@ -27,8 +32,28 @@ public class MainFrame extends BasicFrame {
 		super.paint(g);
 		if (!flag) {
 			g.drawString("Robot's cards: * pts", 10, 45);
-			g.drawImage(img_temp.getImage(), 10, 55, this);
-			
+			for (int i = 0; i < deaker_cards.size()-1; i++) {
+				g.drawImage(img_back.getImage(), 10+i*10, 55, this);
+			}
+			img_temp=new ImageIcon("image/"+deaker_cards.get(0).toString()+".gif");
+			g.drawImage(img_temp.getImage(), 30, 55, this);
+			g.drawString("your cards: "+game.Player.count()+" pts", 10, 165);
+			for (int i = 0; i < 2; i++) {
+				img_temp=new ImageIcon("image/"+player_cards.get(i).toString()+".gif");
+				g.drawImage(img_temp.getImage(), 10+i*20, 175, this);
+			}
+		}
+		else {
+			g.drawString("Robot's cards: "+game.Deaker.count()+" pts", 10, 45);
+			for (int i = 0; i < deaker_cards.size() ; i++) {
+				img_temp=new ImageIcon("image/"+deaker_cards.get(i).toString()+".gif");
+				g.drawImage(img_temp.getImage(), 10+i*20, 175, this);
+			}
+			g.drawString("your cards: "+game.Player.count()+" pts", 10, 165);
+			for (int i = 0; i < 2; i++) {
+				img_temp=new ImageIcon("image/"+player_cards.get(i).toString()+".gif");
+				g.drawImage(img_temp.getImage(), 10+i*20, 175, this);
+			}
 		}
 		
 		

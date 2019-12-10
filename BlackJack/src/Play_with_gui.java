@@ -1,6 +1,8 @@
 package src;
 
 
+import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 
 public class Play_with_gui {
@@ -12,6 +14,7 @@ public class Play_with_gui {
 		Player=new Hand();
 		Deaker=new Hand();
 		deck=new Deck();
+		playgame();
 	}
 	public void playgame() {
 		for (int i = 0; i < 2; i++) {
@@ -20,7 +23,6 @@ public class Play_with_gui {
 		for (int i = 0; i < 2; i++) {
 			Deaker.addcard(deck.withdraw());
 		}
-		System.out.print("**");
 		if ((Deaker.count()>0) & (Deaker.count()<17)){
 			Deaker.addcard(deck.withdraw());
 		}
@@ -44,10 +46,10 @@ public class Play_with_gui {
 			}
 		}
 	}
-	public Hand getPlayer() {
-		return Player;
+	public ArrayList<Card> getPlayer() {
+		return Player.getCarray();
 	}
-	public Hand getDeaker() {
-		return Deaker;
+	public ArrayList<Card> getDeaker() {
+		return Deaker.getCarray();
 	}
 }
