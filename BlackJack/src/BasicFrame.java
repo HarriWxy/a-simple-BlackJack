@@ -32,6 +32,5 @@ public abstract class BasicFrame extends JFrame {//基本界面的框架
 		butts.setBounds(0,620,500,80);
 		c.add(center);
 		c.add(butts);
-		setVisible(true);
 	}
 }

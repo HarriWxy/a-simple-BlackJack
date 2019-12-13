@@ -38,11 +38,14 @@ public class Play_with_gui {
 		}
 		else{
 			if (player==-1) JOptionPane.showMessageDialog(null, "ÄãÓ®ÁË£¡");
-			else if (deaker==-1 | (player>21) | (player<deaker)) {
+			else if (deaker==-1 | (player>21)) {
 				JOptionPane.showMessageDialog(null, "ÄãÊäÁË£¡");
 			}
 			else if ((player>deaker)|(deaker>21)){
 				JOptionPane.showMessageDialog(null, "ÄãÓ®ÁË£¡");
+			}
+			else if ((player<deaker)) {
+				JOptionPane.showMessageDialog(null, "ÄãÊäÁË£¡");
 			}
 		}
 	}

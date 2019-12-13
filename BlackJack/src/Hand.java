@@ -2,8 +2,11 @@ package src;
 import java.util.ArrayList;
 
 public class Hand {
-//	private int price;
-	private ArrayList<Card> carray = new ArrayList<Card>();
+	private ArrayList<Card> carray;
+	public Hand() {
+		// TODO Auto-generated constructor stub
+		carray = new ArrayList<Card>();
+	}
 	public void addcard(Card c) {
 		carray.add(c);
 	}
@@ -20,18 +23,18 @@ public class Hand {
 	}
 	public int count() {
 		if (carray.size()==2) {
-			if (((carray.get(0).k%4==10)&(carray.get(1).k)%4==0)|((carray.get(1).k%4==10)&(carray.get(0).k)%4==0)) {
+			if (((carray.get(0).k%13==9)&(carray.get(1).k)%13==0)|((carray.get(1).k%13==9)&(carray.get(0).k)%13==0)) {
 				return -1;
 			}
 		}
 		int price=0;
 		int ace=0;
 		for (int i = 0; i < carray.size(); i++) {
-			if ((carray.get(i).k)%4==0){
+			if ((carray.get(i).k)%13==0){
 				ace++;
 			}
 			else {
-				price+=carray.get(i).k%4>10 ? (carray.get(i).k%4):10;
+				price+=carray.get(i).k%13>9 ? 10:(carray.get(i).k%13+1);
 			}
 		}
 		for (; ace > 0; ace--) {
